@@ -1,0 +1,28 @@
+{
+    "clientes": [
+        {
+            "nome": "Lucas P. Alves da Silva",
+            "CPF": "11122233312", 
+            "dataNasc": "1999-04-06",
+            "rendaMensal": 6000,
+            "email": "lucas.presley.bnu@gmail.com",
+            "dataCadastro": "2023-05-29 10:00:00"
+        },
+        {
+            "nome": "Lucas Teste",
+            "CPF": "22244466688", 
+            "dataNasc": "1999-01-01",
+            "rendaMensal": 7000,
+            "email": "lucas_presley@hotmail.com",
+            "dataCadastro": "2023-05-29 10:30:00"
+        },
+        {
+            "nome": "Cliente Lucas",
+            "CPF": "01011100011", 
+            "dataNasc": "1980-06-25",
+            "rendaMensal": 5500,
+            "email": "cliente_teste@email.com",
+            "dataCadastro": "2023-05-26 17:10:00"
+        }
+    ]
+}
