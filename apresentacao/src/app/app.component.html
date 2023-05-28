@@ -1,1 +1,11 @@
-<router-outlet />
+<mat-drawer-container class="container-pages" autosize>
+    <mat-drawer #drawer class="container-sidenav" mode="side">
+      
+    </mat-drawer>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    <router-outlet />
+</mat-drawer-container>    
