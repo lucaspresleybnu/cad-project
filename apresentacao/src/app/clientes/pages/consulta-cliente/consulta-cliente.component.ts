@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ClienteFiltro } from '../../models/ClienteFiltro';
 import { ClientesService } from '../../services/clientes.service';
 import { Cliente } from '../../models/Cliente';
+import { ClienteDefault } from '../../enum/cliente.enum';
+import { debounceTime, first, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-consulta-cliente',
@@ -10,29 +12,30 @@ import { Cliente } from '../../models/Cliente';
 })
 export class ConsultaClienteComponent {
 
-  listaClientes: Cliente[] = [];
+  listaClientes: Cliente[] = [ClienteDefault];
 
-  constructor(
-    private serviceCliente: ClientesService
-  ) {}
-
+  constructor(private serviceCliente: ClientesService) {}
+  
   ngOnInit() {
     this.consultaClientes();
   }
 
-  consultaClientes(filtros: string = ''): void {
-    this.serviceCliente.consultaClientes(filtros).subscribe(
-      (valueRetorno) => {
-        this.listaClientes = valueRetorno
+  consultaClientes(filtros: string = '') {
+    this.serviceCliente.consultaClientes(filtros)
+    .pipe(
+      debounceTime(500),
+      first(),
+      map(clientes => clientes)
+    ).subscribe(
+      (clientes: Cliente[]) => {
+        this.listaClientes = clientes
       }
     );
   }
 
   filtrosInformados(filtros: ClienteFiltro): void {
     const valoresFiltrados = this.serializeValuesFilter(filtros);
-    if (valoresFiltrados) {
-      this.consultaClientes(valoresFiltrados);
-    }
+    this.consultaClientes(valoresFiltrados);
   }
 
   serializeValuesFilter(valuesFilterForm: ClienteFiltro): string {

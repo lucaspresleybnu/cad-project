@@ -1,30 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 
 import { Cliente } from '../../models/Cliente';
+import { ClienteDefault } from '../../enum/cliente.enum';
 
 @Component({
   selector: 'app-tabela',
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.scss']
 })
-export class TabelaComponent {
-  desserts: Cliente[] = [
-    {nome: 'Frozen yogurt', cpf: '10810938979', dataCadastro: '28/05/2023', rendaMensal: '6000'},
-    {nome: 'Ice cream sandwich', cpf: '11111111111', dataCadastro: '15/03/2023', rendaMensal: '7000'},
-    {nome: 'Eclair', cpf: '33333333333', dataCadastro: '01/05/2023', rendaMensal: '8000'},
-    {nome: 'Cupcake', cpf: '88888888888', dataCadastro: '20/02/2023', rendaMensal: '6500'},
-    {nome: 'Gingerbread', cpf: '99999999999', dataCadastro: '11/05/2023', rendaMensal: '9000'}
-  ];
+export class TabelaComponent implements OnChanges {
 
-  sortedData: Cliente[];
+  @Input() clientes: Cliente[] = [ClienteDefault];
+  sortedData: Cliente[] = [ClienteDefault];
 
-  constructor() {
-    this.sortedData = this.desserts.slice();
+  constructor() {}
+
+  ngOnChanges() {
+    this.sortedData = this.clientes.slice();
   }
 
   sortData(sort: Sort) {
-    const data = this.desserts.slice();
+    const data = this.clientes.slice();
     if (!sort.active || sort.direction === '') {
       this.sortedData = data;
       return;
@@ -33,8 +30,8 @@ export class TabelaComponent {
     this.sortedData = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'nome':
-          return this.compare(a.nome, b.nome, isAsc);
+        case 'nomeCliente':
+          return this.compare(a.nomeCliente, b.nomeCliente, isAsc);
         case 'cpf':
           return this.compare(a.cpf, b.cpf, isAsc);
         case 'dataCadastro':

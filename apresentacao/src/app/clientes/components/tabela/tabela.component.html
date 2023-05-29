@@ -1,15 +1,15 @@
 <table class="table-list" matSort (matSortChange)="sortData($event)">
   <tr>
-    <th mat-sort-header="nome">Nome Cliente</th>
+    <th mat-sort-header="nomeCliente">Nome Cliente</th>
     <th mat-sort-header="cpf">CPF</th>
     <th mat-sort-header="dataCadastro">Data cadastro</th>
     <th mat-sort-header="rendaMensal">Renda Mensal</th>
   </tr>
 
   <tr *ngFor="let dessert of sortedData">
-    <td class="item-column">{{ dessert.nome }}</td>
+    <td class="item-column">{{ dessert.nomeCliente }}</td>
     <td class="item-column">{{ dessert.cpf }}</td>
-    <td class="item-column">{{ dessert.dataCadastro }}</td>
-    <td class="item-column">{{ dessert.rendaMensal }}</td>
+    <td class="item-column">{{ dessert.dataCadastro | date: 'd/MM/Y' }}</td>
+    <td class="item-column">{{ dessert.rendaMensal | currency: 'BRL': 'symbol': '4.2-2'}}</td>
   </tr>
 </table>

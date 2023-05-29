@@ -22,5 +22,6 @@ export class FiltrosComponent {
 
   limparCampos(): void {
     this.filtrosGroup.reset();
+    this.filtrarClientes();
   }
 }

@@ -1,13 +1,14 @@
 <div class="container">
   <div class="container-content">
     <div class="title">
-        <h1 class="title-text">Clientes</h1>
+        <h1 class="title-text">Consulta de Clientes</h1>
     </div>
     <div class="filtros">
         <app-filtros (filtros)="filtrosInformados($event)"/>
     </div>
     <div class="listagem">
-        <app-tabela />
+      <app-tabela [clientes]="listaClientes" *ngIf="listaClientes.length"/>
+      <p *ngIf="!listaClientes.length">Cliente não encontrado, faça uma nova busca!</p>
     </div>
   </div>
 </div>
