@@ -4,7 +4,7 @@
         <h1 class="title-text">Clientes</h1>
     </div>
     <div class="filtros">
-        <app-filtros />
+        <app-filtros (filtros)="filtrosInformados($event)"/>
     </div>
     <div class="listagem">
         <app-tabela />

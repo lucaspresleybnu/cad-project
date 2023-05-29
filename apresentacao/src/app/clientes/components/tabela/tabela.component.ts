@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 
-export interface Cliente {
-  nome: string;
-  cpf: string;
-  dataCadastro: string;
-  rendaMensal: string;
-}
+import { Cliente } from '../../models/Cliente';
 
 @Component({
   selector: 'app-tabela',

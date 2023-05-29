@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./filtros.component.scss']
 })
 export class FiltrosComponent {
+  
+  @Output() filtros = new EventEmitter();
+  
   filtrosGroup = new FormGroup({
     nomeCliente: new FormControl(''),
     cpf: new FormControl(''),
@@ -14,7 +17,7 @@ export class FiltrosComponent {
   });
 
   filtrarClientes(): void {
-    console.log(this.filtrosGroup.value);
+    this.filtros.emit(this.filtrosGroup.value);
   }
 
   limparCampos(): void {
