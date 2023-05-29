@@ -4,6 +4,38 @@
 
   .container-sidenav {
     padding: 20px;
+
+    .group-btn {
+      margin-bottom: 15px;
+    }
+  }
+
+  .box-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-right: 30px;
+
+    .logo {
+      background-color: #fff;
+      color: #00586F;
+      border-radius: 40px 0px 40px 0px;
+      font-size: 14px;
+      padding: 3px 20px;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .text-page {
+      font-size: 14px;
+      p {
+        margin: 0px;
+      }
+    }
   }
 }
 .mat-drawer-container {
