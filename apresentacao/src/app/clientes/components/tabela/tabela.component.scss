@@ -1,0 +1,40 @@
+.table-list {
+    width: 100%;
+    border-collapse: collapse;
+    
+    th {
+        background: #11728b;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    th, tr {
+        height: 38px;
+        font-size: 10px;
+    }
+    th:first-of-type,
+    .item-column:first-of-type {
+        border-radius: 40px 0px 0px 40px;
+    }
+    th:last-of-type {
+        border-radius: 0px 0px 40px 0px;
+    }
+
+    th:first-of-type,
+    td:first-of-type {
+        padding-left: 15px;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f7f7f7;
+    }
+
+    .item-column:last-of-type {
+        border-radius: 0px 40px 40px 0px;
+    }
+}
+
+::ng-deep {
+    .mat-sort-header-arrow {
+        color: #fff;
+    }
+}

@@ -1,5 +1,11 @@
-@import 'https://fonts.googleapis.com/css2?family=JetBrains+Mono';
+@use './styles/variables' as variable;
+@import 'https://fonts.googleapis.com/css2?family=Montserrat';
 @import './styles/_theming.scss';
+
+
+*:not(mat-icon) {
+  font-family: 'Montserrat' !important;
+}
 
 html,
 body {
@@ -7,5 +13,34 @@ body {
 }
 body {
   margin: 0;
-  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .container-content {
+    display: flex;
+    width: 90%;
+    margin-top: 28px;
+  }
+}
+
+.mat-toolbar.mat-primary {
+  background: variable.$color-brand-primary-darkest;
+}
+
+.title-text {
+  color: variable.$color-brand-primary-medium;
+}
+
+.mat-mdc-unelevated-button:not(:disabled),
+.btn-primary {
+  color: variable.$text-light !important;
+  background-color: variable.$color-brand-primary-dark !important;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
 }

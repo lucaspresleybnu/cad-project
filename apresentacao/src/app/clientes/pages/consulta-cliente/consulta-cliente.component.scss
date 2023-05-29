@@ -1,0 +1,25 @@
+.container {
+    .container-content {
+        flex-direction: column;
+        
+        .title {
+            margin-bottom: 18px;
+
+            .title-text {
+                font-weight: 900;
+                font-size: 20px;
+                line-height: 24px;
+                text-transform: uppercase;
+            }
+        }
+
+        .filtros {
+            margin-bottom: 25px;
+        }
+
+        .filtros, 
+        .listagem {
+            padding-left: 15px;
+        }
+    }
+}

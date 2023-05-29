@@ -1,16 +1,18 @@
-@use '@angular/material' as mat;
-@use './palette' as palette;
+@use "@angular/material" as mat;
+@use "./palette" as palette;
 
 $custom-app-primary: mat.define-palette(palette.$primary, 500);
 $custom-app-accent: mat.define-palette(palette.$secondary, 500);
 $custom-app-warn: mat.define-palette(palette.$warning, 500);
 
-$custom-theme: mat.define-light-theme((
-  color: (
-    primary: $custom-app-primary, 
-    accent: $custom-app-accent, 
-    warn: $custom-app-warn
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-app-primary,
+      accent: $custom-app-accent,
+      warn: $custom-app-warn,
+    ),
   )
-));
+);
 
 @include mat.all-component-themes($custom-theme);
