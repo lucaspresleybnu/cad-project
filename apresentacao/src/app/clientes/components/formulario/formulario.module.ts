@@ -6,9 +6,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
-import { InputMaskModule } from '@ngneat/input-mask';
+import { IConfig, NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
 import { FormularioComponent } from './formulario.component';
 
+const maskConfig: Partial<IConfig> = {
+    validation: false,
+};
 @NgModule({
     imports: [
         ReactiveFormsModule,
@@ -17,13 +20,17 @@ import { FormularioComponent } from './formulario.component';
         MatInputModule,
         MatIconModule,
         MatButtonModule,
-        InputMaskModule.forRoot({ inputSelector: 'input', isAsync: true })
+        NgxMaskDirective,
+        NgxMaskPipe
     ],
     exports: [
         FormularioComponent
     ],
     declarations: [
         FormularioComponent,
+    ],
+    providers: [
+        provideEnvironmentNgxMask(maskConfig)
     ]
 })
 export class FormularioModule {}

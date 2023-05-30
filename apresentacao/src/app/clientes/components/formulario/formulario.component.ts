@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { createMask } from '@ngneat/input-mask';
 import { Cliente } from '../../models/Cliente';
 
 @Component({
@@ -11,29 +10,6 @@ import { Cliente } from '../../models/Cliente';
 })
 export class FormularioComponent {
   @Output() formulario = new EventEmitter();
-
-  emailInputMask = createMask({ alias: 'email' });
-
-  dateInputMask = createMask<Date>({
-    alias: 'datetime',
-    inputFormat: 'dd/mm/yyyy',
-    parser: (value: string) => {
-      const values = value.split('/');
-      const year = +values[2];
-      const month = +values[1] - 1;
-      const date = +values[0];
-      return new Date(year, month, date);
-    },
-  });
-
-  currencyInputMask = createMask({
-    alias: 'numeric',
-    groupSeparator: '.',
-    digits: 2,
-    digitsOptional: false,
-    prefix: '$ ',
-    placeholder: '0',
-  });
 
   formularioGroup = new FormGroup({
     nomeCliente: new FormControl('', Validators.required),
