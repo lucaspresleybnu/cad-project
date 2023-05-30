@@ -6,9 +6,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
-import { InputMaskModule } from '@ngneat/input-mask';
+import { IConfig, NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
 import { FiltrosComponent } from './filtros.component';
 
+const maskConfig: Partial<IConfig> = {
+    validation: false,
+};
+  
 @NgModule({
     imports: [
         ReactiveFormsModule,
@@ -17,13 +21,17 @@ import { FiltrosComponent } from './filtros.component';
         MatInputModule,
         MatIconModule,
         MatButtonModule,
-        InputMaskModule.forRoot({ inputSelector: 'input', isAsync: true })
+        NgxMaskDirective,
+        NgxMaskPipe
     ],
     exports: [
         FiltrosComponent
     ],
     declarations: [
         FiltrosComponent,
+    ],
+    providers: [
+        provideEnvironmentNgxMask(maskConfig)
     ]
 })
 export class FiltrosModule {}

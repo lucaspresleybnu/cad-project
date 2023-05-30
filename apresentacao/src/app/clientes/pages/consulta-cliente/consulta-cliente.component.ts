@@ -45,7 +45,7 @@ export class ConsultaClienteComponent {
     const propObject = Object.keys(valuesFilterForm);
     let filterArray = [];
     for (let i = 0; i < valuesObject.length; i++) {
-      let filter = `${propObject[i]}=${valuesObject[i]}`;
+      let filter = `${propObject[i]}_like=${valuesObject[i]}`;
       if (valuesObject[i]) filterArray.push(filter);
     }
     return filterArray.join('&');

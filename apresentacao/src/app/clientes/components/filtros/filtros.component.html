@@ -6,11 +6,11 @@
     </mat-form-field>
     <mat-form-field class="filtro-form-field" appearance="fill">
       <mat-label>CPF:</mat-label>
-      <input matInput type="text"  formControlName="cpf"/>
+      <input matInput type="text"  formControlName="cpf" [mask]="'000.000.000-00'"/>
     </mat-form-field>
     <mat-form-field class="filtro-form-field" appearance="fill">
       <mat-label>Data Nascimento:</mat-label>
-      <input matInput type="input"  formControlName="dataNascimento" [inputMask]="dateInputMask"/>
+      <input matInput type="input"  formControlName="dataNascimento" [mask]="'d0/M0/0000'" [leadZeroDateTime]="true" [dropSpecialCharacters]="false"/>
     </mat-form-field>
     <a class="btn-limpar-campos" (click)="limparCampos()">Limpar Campos</a>
     <div class="button-search">

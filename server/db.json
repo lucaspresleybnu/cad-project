@@ -53,6 +53,15 @@
       "email": "maisumteste@teste.com",
       "rendaMensal": "7400.00",
       "id": 6
+    },
+    {
+      "nomeCliente": "Juliana",
+      "cpf": "22233344455",
+      "dataCadastro": "2023-05-30 13:39:27",
+      "dataNascimento": "2000-03-03",
+      "email": "juliana@testeemail.com",
+      "rendaMensal": "513131.00",
+      "id": 7
     }
   ]
 }

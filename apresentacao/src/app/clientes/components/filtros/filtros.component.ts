@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { createMask } from '@ngneat/input-mask';
 
 @Component({
   selector: 'app-filtros',
@@ -17,18 +16,6 @@ export class FiltrosComponent {
     dataNascimento: new FormControl(''),
   });
 
-  dateInputMask = createMask<Date>({
-    alias: 'datetime',
-    inputFormat: 'dd/mm/yyyy',
-    parser: (value: string) => {
-      const values = value.split('/');
-      const year = +values[2];
-      const month = +values[1] - 1;
-      const date = +values[0];
-      return new Date(year, month, date);
-    },
-  });
-
   filtrarClientes(): void {
     this.filtrosGroup.value.dataNascimento = this.dateFormatToFilter(this.filtrosGroup.value.dataNascimento);
     this.filtros.emit(this.filtrosGroup.value);
@@ -41,11 +28,8 @@ export class FiltrosComponent {
 
   dateFormatToFilter(date: any) {
     if (date) {
-      let d: Date = date;
-      let ano = d.getFullYear();
-      let mes = String(d.getMonth() + 1).padStart(2, '0');
-      let dia = String(d.getDate()).padStart(2, '0');
-      let dataFormatada = `${ano}-${mes}-${dia}`;
+      let d = date.split('/');
+      let dataFormatada = `${d[2]}-${d[1]}-${d[0]}`;
       return dataFormatada;
     }
     return '';
