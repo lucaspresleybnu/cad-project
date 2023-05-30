@@ -10,11 +10,12 @@
       .input-email {
         width: 49.5%;
       }
+      
     }
 
     .area-buttons {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       gap: 10px;
 
       .btn-limpar-campos {
@@ -63,4 +64,5 @@
   .mdc-line-ripple--active {
     display: none;
   }
+
 }
