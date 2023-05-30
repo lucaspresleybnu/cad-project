@@ -18,4 +18,8 @@ export class ClientesService {
   consultaClientes(filtros: string): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${API}/clientes?${filtros}`);
   }
+
+  adicionaCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${API}/clientes`, cliente);
+  }
 }

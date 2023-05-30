@@ -1,28 +1,58 @@
 {
-    "clientes": [
-        {
-            "nomeCliente": "Lucas P. Alves da Silva",
-            "cpf": "11122233312", 
-            "dataNascimento": "1999-04-06",
-            "rendaMensal": 6000,
-            "email": "lucas.presley.bnu@gmail.com",
-            "dataCadastro": "2023-05-29 10:00:00"
-        },
-        {
-            "nomeCliente": "Lucas Teste",
-            "cpf": "22244466688", 
-            "dataNascimento": "1999-01-01",
-            "rendaMensal": 7000,
-            "email": "lucas_presley@hotmail.com",
-            "dataCadastro": "2023-05-29 10:30:00"
-        },
-        {
-            "nomeCliente": "Cliente Lucas",
-            "cpf": "01011100011", 
-            "dataNascimento": "1980-06-25",
-            "rendaMensal": 5500,
-            "email": "cliente_teste@email.com",
-            "dataCadastro": "2023-05-26 17:10:00"
-        }
-    ]
+  "clientes": [
+    {
+      "id": 1,
+      "nomeCliente": "Lucas P. Alves da Silva",
+      "cpf": "11122233312",
+      "dataNascimento": "1999-04-06",
+      "rendaMensal": "6000",
+      "email": "lucas.presley.bnu@gmail.com",
+      "dataCadastro": "2023-05-29 10:00:00"
+    },
+    {
+      "id": 2,
+      "nomeCliente": "Lucas Teste",
+      "cpf": "22244466688",
+      "dataNascimento": "1999-01-01",
+      "rendaMensal": "7000",
+      "email": "lucas_presley@hotmail.com",
+      "dataCadastro": "2023-05-29 10:30:00"
+    },
+    {
+      "id": 3,
+      "nomeCliente": "Cliente Lucas",
+      "cpf": "01011100011",
+      "dataNascimento": "1980-06-25",
+      "rendaMensal": "5500",
+      "email": "cliente_teste@email.com",
+      "dataCadastro": "2023-05-26 17:10:00"
+    },
+    {
+      "nomeCliente": "Teste novo",
+      "cpf": "12342563897",
+      "dataCadastro": "2023-05-30 04:22:10",
+      "dataNascimento": "1999-04-06",
+      "email": "email@emailnovo.com",
+      "rendaMensal": "8200.00",
+      "id": 4
+    },
+    {
+      "nomeCliente": "Novo teste",
+      "cpf": "55566677799",
+      "dataCadastro": "2023-05-30 04:25:41",
+      "dataNascimento": "1995-01-01",
+      "email": "testenovo@teste.com",
+      "rendaMensal": "7600.00",
+      "id": 5
+    },
+    {
+      "nomeCliente": "Novo Teste Lucas",
+      "cpf": "12336547899",
+      "dataCadastro": "2023-05-30 04:29:18",
+      "dataNascimento": "1980-05-02",
+      "email": "maisumteste@teste.com",
+      "rendaMensal": "7400.00",
+      "id": 6
+    }
+  ]
 }

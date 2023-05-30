@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { createMask } from '@ngneat/input-mask';
+import { Cliente } from '../../models/Cliente';
 
 @Component({
   selector: 'app-formulario',
@@ -43,12 +44,16 @@ export class FormularioComponent {
   });
 
   formSubmit() {
-    let dadosForm: any = this.formularioGroup.value;
-    dadosForm['dataNascimentoformatada'] = this.dateFormatToBD(
-      dadosForm?.dataNascimento
-    );
-    dadosForm['dataCadastro'] = this.dateFormatToBD(new Date(), true);
-    dadosForm['rendaMensal'] = this.currencyFormat(dadosForm?.rendaMensal);
+    let dadosForm: Cliente = {
+      nomeCliente: String(this.formularioGroup.value.nomeCliente),
+      cpf: String(this.formularioGroup.value.cpf),
+      dataCadastro: this.dateFormatToBD(new Date(), true),
+      dataNascimento: this.dateFormatToBD(
+        this.formularioGroup.value.dataNascimento
+      ),
+      email: String(this.formularioGroup.value.email),
+      rendaMensal: this.currencyFormat(String(this.formularioGroup.value.rendaMensal))
+    };
     if (!this.formularioGroup.invalid) {
       this.formulario.emit(dadosForm);
     }
