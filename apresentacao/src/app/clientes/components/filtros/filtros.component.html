@@ -10,7 +10,7 @@
     </mat-form-field>
     <mat-form-field class="filtro-form-field" appearance="fill">
       <mat-label>Data Nascimento:</mat-label>
-      <input matInput type="input"  formControlName="dataNascimento"/>
+      <input matInput type="input"  formControlName="dataNascimento" [inputMask]="dateInputMask"/>
     </mat-form-field>
     <a class="btn-limpar-campos" (click)="limparCampos()">Limpar Campos</a>
     <div class="button-search">

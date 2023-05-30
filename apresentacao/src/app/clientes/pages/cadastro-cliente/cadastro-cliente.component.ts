@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Cliente } from '../../models/Cliente';
 import { ClientesService } from '../../services/clientes.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-cliente',

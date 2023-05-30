@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { ClienteFiltro } from '../../models/ClienteFiltro';
-import { ClientesService } from '../../services/clientes.service';
-import { Cliente } from '../../models/Cliente';
-import { ClienteDefault } from '../../enum/cliente.enum';
+import { createMask } from '@ngneat/input-mask';
 import { debounceTime, first, map } from 'rxjs/operators';
+
+import { ClienteFiltro } from '../../models/ClienteFiltro';
+import { Cliente } from '../../models/Cliente';
+import { ClientesService } from '../../services/clientes.service';
+import { ClienteDefault } from '../../enum/cliente.enum';
 
 @Component({
   selector: 'app-consulta-cliente',
