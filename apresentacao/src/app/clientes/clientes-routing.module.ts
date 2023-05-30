@@ -15,14 +15,20 @@ const routes: Routes = [
       },
       {
         path: 'consulta',
-        component: ConsultaClienteComponent
+        component: ConsultaClienteComponent,
       },
       {
         path: 'cadastro',
-        component: CadastroClienteComponent
-      }
-    ]
-  }
+        component: CadastroClienteComponent,
+        children: [
+          {
+            path: ':id',
+            component: CadastroClienteComponent,
+          },
+        ]
+      },
+    ],
+  },
 ];
 
 @NgModule({

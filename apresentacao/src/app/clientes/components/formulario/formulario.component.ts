@@ -20,17 +20,17 @@ export class FormularioComponent {
   });
 
   formSubmit() {
-    let dadosForm: Cliente = {
-      nomeCliente: String(this.formularioGroup.value.nomeCliente),
-      cpf: String(this.formularioGroup.value.cpf),
-      dataCadastro: this.dateFormatToBD(new Date(), true),
-      dataNascimento: this.dateFormatToBD(
-        this.formularioGroup.value.dataNascimento
-      ),
-      email: String(this.formularioGroup.value.email),
-      rendaMensal: this.currencyFormat(String(this.formularioGroup.value.rendaMensal))
-    };
     if (!this.formularioGroup.invalid) {
+      let dadosForm: Cliente = {
+        nomeCliente: String(this.formularioGroup.value.nomeCliente),
+        cpf: String(this.formularioGroup.value.cpf),
+        dataCadastro: this.dateCompleteFormatToBD(new Date()),
+        dataNascimento: this.dateFormatToBD(
+          this.formularioGroup.value.dataNascimento
+        ),
+        email: String(this.formularioGroup.value.email),
+        rendaMensal: String(this.formularioGroup.value.rendaMensal),
+      };
       this.formulario.emit(dadosForm);
     }
   }
@@ -43,19 +43,25 @@ export class FormularioComponent {
     return (valor = valor ? valor.replace(/,/g, '').replaceAll('$ ', '') : '');
   }
 
-  dateFormatToBD(date: any, complete: boolean = false) {
+  dateFormatToBD(date: any) {
+    if (date) {
+      let d = date.split('/');
+      let dataFormatada = `${d[2]}-${d[1]}-${d[0]}`;
+      return dataFormatada;
+    }
+    return '';
+  }
+
+  dateCompleteFormatToBD(date: any) {
     if (date) {
       let d: Date = date;
       let ano = d.getFullYear();
       let mes = String(d.getMonth() + 1).padStart(2, '0');
       let dia = String(d.getDate()).padStart(2, '0');
-      let dataFormatada = `${ano}-${mes}-${dia}`;
-      if (complete) {
-        let horas = String(d.getHours()).padStart(2, '0');
-        let minutos = String(d.getMinutes()).padStart(2, '0');
-        let segundos = String(d.getSeconds()).padStart(2, '0');
-        dataFormatada += ` ${horas}:${minutos}:${segundos}`;
-      }
+      let horas = String(d.getHours()).padStart(2, '0');
+      let minutos = String(d.getMinutes()).padStart(2, '0');
+      let segundos = String(d.getSeconds()).padStart(2, '0');
+      let dataFormatada = `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
       return dataFormatada;
     }
     return '';
