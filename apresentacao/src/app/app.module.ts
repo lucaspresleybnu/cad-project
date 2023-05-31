@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import { InputMaskModule } from '@ngneat/input-mask';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { InputMaskModule } from '@ngneat/input-mask';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatMenuModule,
-    InputMaskModule
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
